@@ -1,0 +1,5 @@
+source,target
+ApexClass:AccountSyncService,CustomObject:Account
+LightningComponentBundle:dunexCaseConsole,CustomObject:Case
+CustomObject:Case,Layout:Case-Case Layout
+CustomObject:Opportunity,CustomField:Opportunity.StageName
