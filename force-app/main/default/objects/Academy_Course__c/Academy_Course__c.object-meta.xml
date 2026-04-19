@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Academy offers for introductory AI and fashion modelling education.</description>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <label>Academy Course</label>
+    <nameField>
+        <displayFormat>AC-{0000}</displayFormat>
+        <label>Academy Course Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Academy Courses</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

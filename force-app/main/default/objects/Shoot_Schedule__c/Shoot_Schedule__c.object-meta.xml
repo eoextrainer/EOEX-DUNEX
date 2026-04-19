@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Operational scheduling records for studio shoots and production slots.</description>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <label>Shoot Schedule</label>
+    <nameField>
+        <displayFormat>SS-{0000}</displayFormat>
+        <label>Shoot Schedule Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Shoot Schedules</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
