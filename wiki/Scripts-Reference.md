@@ -151,6 +151,8 @@ Useful options:
 
 ```bash
 bash scripts/refresh-wikio-branch.sh --no-push
+bash scripts/refresh-wikio-branch.sh --pull-only
+bash scripts/refresh-wikio-branch.sh --sync-only
 bash scripts/refresh-wikio-branch.sh --commit-message "docs(wiki): refresh local wikio branch"
 ```
 

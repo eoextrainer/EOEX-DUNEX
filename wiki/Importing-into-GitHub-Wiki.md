@@ -52,6 +52,8 @@ Useful options:
 
 ```bash
 bash scripts/refresh-wikio-branch.sh --no-push
+bash scripts/refresh-wikio-branch.sh --pull-only
+bash scripts/refresh-wikio-branch.sh --sync-only
 bash scripts/refresh-wikio-branch.sh --commit-message "docs(wiki): refresh local wikio branch"
 ```
 
@@ -69,6 +71,11 @@ Behavior:
 - refreshes or creates the local `wikio` branch from the live wiki remote
 - mirrors the repo `wiki/` folder into that clone
 - pushes `wikio` to the live wiki `master` branch unless `--no-push` is supplied
+
+Mode behavior:
+
+- `--pull-only`: refresh the dedicated local clone from the live wiki remote and stop before syncing local wiki content
+- `--sync-only`: refresh the dedicated local clone, sync and commit local wiki content, and stop before push
 
 ## Example Process
 

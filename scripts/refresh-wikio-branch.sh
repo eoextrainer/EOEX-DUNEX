@@ -5,9 +5,11 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SOURCE_DIR="$ROOT_DIR/wiki"
 TARGET_DIR="$ROOT_DIR/tmp/wikio-branch"
+LOCAL_README_FILE="$TARGET_DIR/README.local.md"
 COMMIT_MESSAGE="docs(wiki): refresh local wikio branch"
 PUSH_CHANGES=1
 WIKI_URL=""
+MODE="full"
 
 log() {
   printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*"
@@ -25,6 +27,8 @@ Usage: bash scripts/refresh-wikio-branch.sh [options]
 Options:
   --wiki-url <url>         Override the derived GitHub Wiki remote URL
   --commit-message <text>  Commit message to use in the dedicated wiki clone
+  --pull-only              Refresh the local clone from the live wiki and stop
+  --sync-only              Sync and commit locally, but do not push
   --no-push                Refresh the local clone and commit, but do not push
   --help                   Show this help text
 EOF
@@ -85,6 +89,16 @@ parse_args() {
         COMMIT_MESSAGE="$2"
         shift 2
         ;;
+      --pull-only)
+        MODE="pull-only"
+        PUSH_CHANGES=0
+        shift
+        ;;
+      --sync-only)
+        MODE="sync-only"
+        PUSH_CHANGES=0
+        shift
+        ;;
       --no-push)
         PUSH_CHANGES=0
         shift
@@ -124,11 +138,65 @@ prepare_branch() {
 
 sync_content() {
   log "Syncing repository wiki content into $TARGET_DIR"
-  rsync -a --delete --exclude '.git/' "$SOURCE_DIR/" "$TARGET_DIR/"
+  rsync -a --delete --exclude '.git/' --exclude 'README.local.md' "$SOURCE_DIR/" "$TARGET_DIR/"
+}
+
+ensure_local_readme() {
+  if [[ -f "$LOCAL_README_FILE" ]]; then
+    return 0
+  fi
+
+  cat > "$LOCAL_README_FILE" <<'EOF'
+# Local Wikio Clone
+
+This file is for the local workstation copy in `tmp/wikio-branch`.
+
+Purpose:
+
+- explain why this clone exists
+- show the safe refresh and publish path
+- avoid accidental edits in the wrong repository
+
+What this directory is:
+
+- a dedicated local clone of the live GitHub Wiki repository
+- the place where the local `wikio` branch is refreshed and pushed to wiki `master`
+
+What this directory is not:
+
+- not the main EOEX-DUNEX application repository
+- not the source of truth for wiki authoring
+
+Source of truth:
+
+- edit wiki content in the main repository `wiki/` folder first
+- then refresh this clone from the main repository helper script
+
+Safe usage:
+
+```bash
+cd "/Users/eoex/Documents/EOEX/EOEX CONSULTING/SFDC/EOEX-DUNEX"
+bash scripts/refresh-wikio-branch.sh
+```
+
+Useful modes:
+
+```bash
+bash scripts/refresh-wikio-branch.sh --pull-only
+bash scripts/refresh-wikio-branch.sh --sync-only
+```
+
+Notes:
+
+- this file is intentionally local-only
+- the refresh helper preserves `README.local.md` during sync
+- avoid hand-editing wiki pages here unless you intentionally want to work directly in the dedicated clone
+EOF
 }
 
 commit_if_needed() {
   git -C "$TARGET_DIR" add --all
+  git -C "$TARGET_DIR" reset -- README.local.md >/dev/null 2>&1 || true
 
   if git -C "$TARGET_DIR" diff --cached --quiet; then
     log "No wikio changes detected"
@@ -159,7 +227,14 @@ main() {
   ensure_clone
   ensure_git_identity
   prepare_branch
+
+  if [[ "$MODE" == "pull-only" ]]; then
+    log "Pull-only mode completed"
+    return 0
+  fi
+
   sync_content
+  ensure_local_readme
 
   if commit_if_needed; then
     push_if_requested
