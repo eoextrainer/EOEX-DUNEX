@@ -1,0 +1,11 @@
+.sf/
+.sfdx/
+.DS_Store
+.idea/
+.vscode/
+tmp/
+dist/
+coverage/
+node_modules/
+config/generated-passwords/
+config/scratch-org-registry.csv

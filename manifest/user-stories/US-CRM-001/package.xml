@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>DUNEX_CRM_Access</members>
+    <name>PermissionSet</name>
+</types>
+    <types>
+        <members>Academy_Course__c</members>
+        <members>Academy_Enrollment__c</members>
+        <members>Distribution_Channel__c</members>
+        <members>Event_Booking__c</members>
+        <members>Event_Service__c</members>
+        <members>Publication__c</members>
+        <members>Shoot_Schedule__c</members>
+        <members>Studio_Project__c</members>
+    <name>CustomTab</name>
+</types>
+    <types>
+        <members>Academy_Course_Record_Page</members>
+        <members>Academy_Enrollment_Record_Page</members>
+        <members>DUNEX_Academy_Home</members>
+        <members>DUNEX_Events_Home</members>
+        <members>DUNEX_Publishing_Kiosk_Home</members>
+        <members>DUNEX_Studio_Home</members>
+        <members>Distribution_Channel_Record_Page</members>
+        <members>Event_Booking_Record_Page</members>
+        <members>Event_Service_Record_Page</members>
+        <members>Publication_Record_Page</members>
+        <members>Shoot_Schedule_Record_Page</members>
+        <members>Studio_Project_Record_Page</members>
+    <name>FlexiPage</name>
+</types>
+    <types>
+        <members>Academy_Course__c.Audience_Level__c</members>
+        <members>Academy_Course__c.Delivery_Mode__c</members>
+        <members>Academy_Course__c.Duration_Minutes__c</members>
+        <members>Academy_Course__c.Track__c</members>
+        <members>Academy_Enrollment__c.Academy_Course__c</members>
+        <members>Academy_Enrollment__c.Cohort_Date__c</members>
+        <members>Academy_Enrollment__c.Learner_Email__c</members>
+        <members>Academy_Enrollment__c.Payment_Status__c</members>
+        <members>Academy_Enrollment__c.Status__c</members>
+        <members>Distribution_Channel__c.Active__c</members>
+        <members>Distribution_Channel__c.Channel_Type__c</members>
+        <members>Distribution_Channel__c.Channel_URL__c</members>
+        <members>Distribution_Channel__c.Launch_Date__c</members>
+        <members>Distribution_Channel__c.Publication__c</members>
+        <members>Event_Booking__c.Booking_Date__c</members>
+        <members>Event_Booking__c.Deposit_Received__c</members>
+        <members>Event_Booking__c.Event_Service__c</members>
+        <members>Event_Booking__c.Guest_Count__c</members>
+        <members>Event_Booking__c.Package_Tier__c</members>
+        <members>Event_Service__c.Client__c</members>
+        <members>Event_Service__c.Estimated_Budget__c</members>
+        <members>Event_Service__c.Event_Date__c</members>
+        <members>Event_Service__c.Service_Type__c</members>
+        <members>Event_Service__c.Status__c</members>
+        <members>Publication__c.Client__c</members>
+        <members>Publication__c.Flipbook_URL__c</members>
+        <members>Publication__c.Format__c</members>
+        <members>Publication__c.Release_Date__c</members>
+        <members>Publication__c.Status__c</members>
+        <members>Shoot_Schedule__c.Production_Lead__c</members>
+        <members>Shoot_Schedule__c.Scheduled_End__c</members>
+        <members>Shoot_Schedule__c.Scheduled_Start__c</members>
+        <members>Shoot_Schedule__c.Studio_Project__c</members>
+        <members>Shoot_Schedule__c.Venue__c</members>
+        <members>Studio_Project__c.Client__c</members>
+        <members>Studio_Project__c.Engagement_Type__c</members>
+        <members>Studio_Project__c.Flipbook_URL__c</members>
+        <members>Studio_Project__c.Shoot_Date__c</members>
+        <members>Studio_Project__c.Status__c</members>
+    <name>CustomField</name>
+</types>
+    <types>
+        <members>DUNEX_Academy</members>
+        <members>DUNEX_Events</members>
+        <members>DUNEX_Publishing_Kiosk</members>
+        <members>DUNEX_Studio</members>
+    <name>CustomApplication</name>
+</types>
+    <types>
+        <members>Academy_Course__c-Academy Course Layout</members>
+        <members>Academy_Enrollment__c-Academy Enrollment Layout</members>
+        <members>Distribution_Channel__c-Distribution Channel Layout</members>
+        <members>Event_Booking__c-Event Booking Layout</members>
+        <members>Event_Service__c-Event Service Layout</members>
+        <members>Publication__c-Publication Layout</members>
+        <members>Shoot_Schedule__c-Shoot Schedule Layout</members>
+        <members>Studio_Project__c-Studio Project Layout</members>
+    <name>Layout</name>
+</types>
+    <types>
+        <members>Academy_Course__c</members>
+        <members>Academy_Enrollment__c</members>
+        <members>Distribution_Channel__c</members>
+        <members>Event_Booking__c</members>
+        <members>Event_Service__c</members>
+        <members>Publication__c</members>
+        <members>Shoot_Schedule__c</members>
+        <members>Studio_Project__c</members>
+    <name>CustomObject</name>
+    </types>
+    <version>62.0</version>
+</Package>
