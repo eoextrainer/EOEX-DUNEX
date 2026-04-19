@@ -132,6 +132,28 @@ Usage:
 bash scripts/import-github-wiki.sh
 ```
 
+### `scripts/refresh-wikio-branch.sh`
+
+Purpose:
+
+- create or refresh the dedicated local wiki clone in `tmp/wikio-branch`
+- keep a local `wikio` branch aligned with the GitHub Wiki remote
+- mirror the repository `wiki/` folder into that clone
+- commit and push the updated wiki from the local `wikio` branch
+
+Usage:
+
+```bash
+bash scripts/refresh-wikio-branch.sh
+```
+
+Useful options:
+
+```bash
+bash scripts/refresh-wikio-branch.sh --no-push
+bash scripts/refresh-wikio-branch.sh --commit-message "docs(wiki): refresh local wikio branch"
+```
+
 ## Suggested Usage Order
 
 1. `init-repo.sh`

@@ -26,6 +26,8 @@ GitHub Wikis are separate Git repositories. A typical import path is:
 
 The repository includes `scripts/import-github-wiki.sh` to perform the clone, sync, commit, and push flow safely.
 
+The repository also includes `scripts/refresh-wikio-branch.sh` to maintain the dedicated local clone at `tmp/wikio-branch` and push from that local `wikio` branch directly into the live GitHub Wiki.
+
 Default usage:
 
 ```bash
@@ -40,6 +42,19 @@ bash scripts/import-github-wiki.sh --keep-clone
 bash scripts/import-github-wiki.sh --commit-message "docs(wiki): refresh project wiki"
 ```
 
+Dedicated local clone workflow:
+
+```bash
+bash scripts/refresh-wikio-branch.sh
+```
+
+Useful options:
+
+```bash
+bash scripts/refresh-wikio-branch.sh --no-push
+bash scripts/refresh-wikio-branch.sh --commit-message "docs(wiki): refresh local wikio branch"
+```
+
 Behavior:
 
 - derives the GitHub Wiki remote from the repository `origin`
@@ -47,6 +62,13 @@ Behavior:
 - uses `rsync --delete` to mirror the local `wiki/` folder into the wiki repository
 - creates a commit only when content actually changed
 - pushes the update unless `--no-push` is supplied
+
+`scripts/refresh-wikio-branch.sh` differs slightly:
+
+- keeps a persistent local clone at `tmp/wikio-branch`
+- refreshes or creates the local `wikio` branch from the live wiki remote
+- mirrors the repo `wiki/` folder into that clone
+- pushes `wikio` to the live wiki `master` branch unless `--no-push` is supplied
 
 ## Example Process
 
@@ -69,5 +91,5 @@ Recommended maintenance model:
 
 1. update the source markdown pages in `wiki/` inside the main repository
 2. review changes like any other documentation update
-3. run `scripts/import-github-wiki.sh` or copy the updated pages into the GitHub Wiki repository manually
+3. run `scripts/refresh-wikio-branch.sh`, run `scripts/import-github-wiki.sh`, or copy the updated pages into the GitHub Wiki repository manually
 4. commit and push the wiki repository
