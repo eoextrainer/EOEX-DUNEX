@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Format__c</fullName>
+    <label>Format</label>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Magazine</fullName>
+                <default>true</default>
+                <label>Magazine</label>
+            </value>
+            <value>
+                <fullName>Book</fullName>
+                <default>false</default>
+                <label>Book</label>
+            </value>
+            <value>
+                <fullName>Lookbook</fullName>
+                <default>false</default>
+                <label>Lookbook</label>
+            </value>
+            <value>
+                <fullName>Catalogue</fullName>
+                <default>false</default>
+                <label>Catalogue</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

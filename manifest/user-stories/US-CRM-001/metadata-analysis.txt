@@ -1,0 +1,84 @@
+User story: US-CRM-001
+Generated: 2026-04-19 02:55:46
+
+Selected metadata:
+- CustomApplication:DUNEX_Academy
+- CustomApplication:DUNEX_Events
+- CustomApplication:DUNEX_Publishing_Kiosk
+- CustomApplication:DUNEX_Studio
+- CustomField:Academy_Course__c.Audience_Level__c
+- CustomField:Academy_Course__c.Delivery_Mode__c
+- CustomField:Academy_Course__c.Duration_Minutes__c
+- CustomField:Academy_Course__c.Track__c
+- CustomField:Academy_Enrollment__c.Academy_Course__c
+- CustomField:Academy_Enrollment__c.Cohort_Date__c
+- CustomField:Academy_Enrollment__c.Learner_Email__c
+- CustomField:Academy_Enrollment__c.Payment_Status__c
+- CustomField:Academy_Enrollment__c.Status__c
+- CustomField:Distribution_Channel__c.Active__c
+- CustomField:Distribution_Channel__c.Channel_Type__c
+- CustomField:Distribution_Channel__c.Channel_URL__c
+- CustomField:Distribution_Channel__c.Launch_Date__c
+- CustomField:Distribution_Channel__c.Publication__c
+- CustomField:Event_Booking__c.Booking_Date__c
+- CustomField:Event_Booking__c.Deposit_Received__c
+- CustomField:Event_Booking__c.Event_Service__c
+- CustomField:Event_Booking__c.Guest_Count__c
+- CustomField:Event_Booking__c.Package_Tier__c
+- CustomField:Event_Service__c.Client__c
+- CustomField:Event_Service__c.Estimated_Budget__c
+- CustomField:Event_Service__c.Event_Date__c
+- CustomField:Event_Service__c.Service_Type__c
+- CustomField:Event_Service__c.Status__c
+- CustomField:Publication__c.Client__c
+- CustomField:Publication__c.Flipbook_URL__c
+- CustomField:Publication__c.Format__c
+- CustomField:Publication__c.Release_Date__c
+- CustomField:Publication__c.Status__c
+- CustomField:Shoot_Schedule__c.Production_Lead__c
+- CustomField:Shoot_Schedule__c.Scheduled_End__c
+- CustomField:Shoot_Schedule__c.Scheduled_Start__c
+- CustomField:Shoot_Schedule__c.Studio_Project__c
+- CustomField:Shoot_Schedule__c.Venue__c
+- CustomField:Studio_Project__c.Client__c
+- CustomField:Studio_Project__c.Engagement_Type__c
+- CustomField:Studio_Project__c.Flipbook_URL__c
+- CustomField:Studio_Project__c.Shoot_Date__c
+- CustomField:Studio_Project__c.Status__c
+- CustomObject:Academy_Course__c
+- CustomObject:Academy_Enrollment__c
+- CustomObject:Distribution_Channel__c
+- CustomObject:Event_Booking__c
+- CustomObject:Event_Service__c
+- CustomObject:Publication__c
+- CustomObject:Shoot_Schedule__c
+- CustomObject:Studio_Project__c
+- CustomTab:Academy_Course__c
+- CustomTab:Academy_Enrollment__c
+- CustomTab:Distribution_Channel__c
+- CustomTab:Event_Booking__c
+- CustomTab:Event_Service__c
+- CustomTab:Publication__c
+- CustomTab:Shoot_Schedule__c
+- CustomTab:Studio_Project__c
+- FlexiPage:Academy_Course_Record_Page
+- FlexiPage:Academy_Enrollment_Record_Page
+- FlexiPage:DUNEX_Academy_Home
+- FlexiPage:DUNEX_Events_Home
+- FlexiPage:DUNEX_Publishing_Kiosk_Home
+- FlexiPage:DUNEX_Studio_Home
+- FlexiPage:Distribution_Channel_Record_Page
+- FlexiPage:Event_Booking_Record_Page
+- FlexiPage:Event_Service_Record_Page
+- FlexiPage:Publication_Record_Page
+- FlexiPage:Shoot_Schedule_Record_Page
+- FlexiPage:Studio_Project_Record_Page
+- Layout:Academy_Course__c-Academy Course Layout
+- Layout:Academy_Enrollment__c-Academy Enrollment Layout
+- Layout:Distribution_Channel__c-Distribution Channel Layout
+- Layout:Event_Booking__c-Event Booking Layout
+- Layout:Event_Service__c-Event Service Layout
+- Layout:Publication__c-Publication Layout
+- Layout:Shoot_Schedule__c-Shoot Schedule Layout
+- Layout:Studio_Project__c-Studio Project Layout
+- PermissionSet:DUNEX_CRM_Access
