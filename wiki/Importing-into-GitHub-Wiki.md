@@ -18,22 +18,43 @@ Included conventions:
 GitHub Wikis are separate Git repositories. A typical import path is:
 
 1. create or enable the GitHub Wiki for the repository
-2. clone the wiki repository locally
+2. run the repository import script or clone the wiki repository locally
 3. copy the contents of this repository's `wiki/` folder into the wiki repository root
 4. commit and push the wiki repository
+
+## Automated Import Script
+
+The repository includes `scripts/import-github-wiki.sh` to perform the clone, sync, commit, and push flow safely.
+
+Default usage:
+
+```bash
+bash scripts/import-github-wiki.sh
+```
+
+Useful options:
+
+```bash
+bash scripts/import-github-wiki.sh --no-push
+bash scripts/import-github-wiki.sh --keep-clone
+bash scripts/import-github-wiki.sh --commit-message "docs(wiki): refresh project wiki"
+```
+
+Behavior:
+
+- derives the GitHub Wiki remote from the repository `origin`
+- clones the wiki into a temporary directory under `tmp/`
+- uses `rsync --delete` to mirror the local `wiki/` folder into the wiki repository
+- creates a commit only when content actually changed
+- pushes the update unless `--no-push` is supplied
 
 ## Example Process
 
 ```bash
-git clone <repo>.wiki.git EOEX-DUNEX.wiki
-cd EOEX-DUNEX.wiki
-cp -R /path/to/EOEX-DUNEX/wiki/* .
-git add .
-git commit -m "docs: import project wiki"
-git push origin main
+bash scripts/import-github-wiki.sh
 ```
 
-Adjust the default branch name if the wiki repository uses a different branch.
+If you prefer the manual route, adjust the default branch name if the wiki repository uses a different branch.
 
 ## Important Notes
 
@@ -48,5 +69,5 @@ Recommended maintenance model:
 
 1. update the source markdown pages in `wiki/` inside the main repository
 2. review changes like any other documentation update
-3. copy the updated pages into the GitHub Wiki repository
+3. run `scripts/import-github-wiki.sh` or copy the updated pages into the GitHub Wiki repository manually
 4. commit and push the wiki repository

@@ -67,6 +67,16 @@ Use this page to track:
 - Test level: metadata deployment validation and manual UAT checks
 - Rollback plan: revert release commit or redeploy previous known-good release state
 
+#### Environment Progression
+
+| Stage | Branch / Org | Status | Validated By | Date | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Release | `origin/release` | Complete | EOEX workflow automation | 2026-04-19 | Story promoted and release baseline published |
+| INT | `int` / `int-org` | Pending |  |  |  |
+| UAT | `uat` / `uat-org` | Pending |  |  |  |
+| PROD | `prod` / `prod-org` | Pending |  |  |  |
+| MAIN | `main` | Pending |  |  |  |
+
 ## Release Entry Template
 
 Use this structure for future releases. It mirrors the repository template in `docs/release-notes-template.md`.
@@ -113,4 +123,14 @@ Use this structure for future releases. It mirrors the repository template in `d
 - Org deployed:
 - Test level:
 - Rollback plan:
+
+#### Environment Progression
+
+| Stage | Branch / Org | Status | Validated By | Date | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Release | `origin/release` | Pending |  |  |  |
+| INT | `int` / `int-org` | Pending |  |  |  |
+| UAT | `uat` / `uat-org` | Pending |  |  |  |
+| PROD | `prod` / `prod-org` | Pending |  |  |  |
+| MAIN | `main` | Pending |  |  |  |
 ```

@@ -116,6 +116,22 @@ Purpose:
 
 - push and deploy the current `release` state into downstream branches and orgs
 
+## Documentation And Wiki
+
+### `scripts/import-github-wiki.sh`
+
+Purpose:
+
+- clone the repository GitHub Wiki
+- mirror the local `wiki/` folder into the wiki repository
+- commit and push the wiki update when content changes
+
+Usage:
+
+```bash
+bash scripts/import-github-wiki.sh
+```
+
 ## Suggested Usage Order
 
 1. `init-repo.sh`
