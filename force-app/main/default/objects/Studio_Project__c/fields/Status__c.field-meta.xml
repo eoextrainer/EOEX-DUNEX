@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <label>Status</label>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Discovery</fullName>
+                <default>true</default>
+                <label>Discovery</label>
+            </value>
+            <value>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+                <label>Scheduled</label>
+            </value>
+            <value>
+                <fullName>Shooting</fullName>
+                <default>false</default>
+                <label>Shooting</label>
+            </value>
+            <value>
+                <fullName>Post-Production</fullName>
+                <default>false</default>
+                <label>Post-Production</label>
+            </value>
+            <value>
+                <fullName>Published</fullName>
+                <default>false</default>
+                <label>Published</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

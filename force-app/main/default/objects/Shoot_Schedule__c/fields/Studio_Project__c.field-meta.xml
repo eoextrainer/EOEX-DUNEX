@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Studio_Project__c</fullName>
+    <label>Studio Project</label>
+    <referenceTo>Studio_Project__c</referenceTo>
+    <relationshipLabel>Shoot Schedules</relationshipLabel>
+    <relationshipName>ShootSchedules</relationshipName>
+    <type>Lookup</type>
+</CustomField>

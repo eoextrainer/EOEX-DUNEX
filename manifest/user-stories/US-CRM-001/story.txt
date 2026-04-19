@@ -1,0 +1,22 @@
+US-CRM-001 - DUNEX Multi-Division CRM Scaffold
+
+As a DUNEX operations leader,
+I want a Salesforce CRM foundation organized by business division,
+so that Studio, Academy, Events, and Publishing Kiosk teams can manage their work in dedicated apps with consistent records, navigation, and access control.
+
+Background:
+The implementation establishes four Lightning apps named DUNEX_Studio, DUNEX_Academy, DUNEX_Events, and DUNEX_Publishing_Kiosk. It creates eight custom objects: Studio_Project__c, Shoot_Schedule__c, Academy_Course__c, Academy_Enrollment__c, Event_Service__c, Event_Booking__c, Publication__c, and Distribution_Channel__c. It also creates custom tabs, page layouts, Lightning record pages, and app home pages for those records and grants access through the DUNEX_CRM_Access permission set.
+
+Acceptance criteria:
+1. The DUNEX_Studio, DUNEX_Academy, DUNEX_Events, and DUNEX_Publishing_Kiosk apps are available in the scratch org.
+2. The Studio_Project__c and Shoot_Schedule__c objects support Studio operations.
+3. The Academy_Course__c and Academy_Enrollment__c objects support Academy operations.
+4. The Event_Service__c and Event_Booking__c objects support Events operations.
+5. The Publication__c and Distribution_Channel__c objects support Publishing Kiosk operations.
+6. Each division has dedicated page layouts and Lightning record pages for its custom objects.
+7. Each Lightning app has a dedicated home page for administrator-led testing.
+8. DUNEX_CRM_Access provides visibility to the apps, tabs, and objects required for unit testing.
+9. The metadata deploys successfully to dunex-scratch-1.
+
+Implementation notes:
+The scaffold now includes the first experience layer with layouts and Lightning pages, and it remains the baseline for later automation, reports, dashboards, and sample data.

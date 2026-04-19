@@ -1,0 +1,3 @@
+SELECT Id, Name, AccountNumber, Type
+FROM Account
+ORDER BY LastModifiedDate DESC
