@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Prospective and confirmed learner enrollments for DUNEX Academy courses.</description>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <label>Academy Enrollment</label>
+    <nameField>
+        <displayFormat>AE-{0000}</displayFormat>
+        <label>Academy Enrollment Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Academy Enrollments</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
