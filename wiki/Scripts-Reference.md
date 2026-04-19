@@ -151,6 +151,7 @@ Useful options:
 
 ```bash
 bash scripts/refresh-wikio-branch.sh --status
+bash scripts/refresh-wikio-branch.sh --status --json
 bash scripts/refresh-wikio-branch.sh --no-push
 bash scripts/refresh-wikio-branch.sh --pull-only
 bash scripts/refresh-wikio-branch.sh --sync-only

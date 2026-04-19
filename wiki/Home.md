@@ -49,6 +49,13 @@ The repository is designed so developers work from story branches and scratch or
 - [[Scripts Reference]]
 - [[Troubleshooting]]
 
+## PR Templates
+
+The repository now includes two pull request templates so contributors can pick the right structure for the type of change being proposed.
+
+- general work: `.github/PULL_REQUEST_TEMPLATE/default.md`
+- wiki and wiki-publishing work: `.github/PULL_REQUEST_TEMPLATE/wiki.md`
+
 ## Core Workflow At A Glance
 
 1. Clone the repository.

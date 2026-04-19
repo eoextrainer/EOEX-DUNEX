@@ -10,6 +10,7 @@ COMMIT_MESSAGE="docs(wiki): refresh local wikio branch"
 PUSH_CHANGES=1
 WIKI_URL=""
 MODE="full"
+OUTPUT_FORMAT="text"
 
 log() {
   printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*"
@@ -28,6 +29,7 @@ Options:
   --wiki-url <url>         Override the derived GitHub Wiki remote URL
   --commit-message <text>  Commit message to use in the dedicated wiki clone
   --status                 Show current dedicated clone status and stop
+  --json                   Emit machine-readable JSON for --status
   --pull-only              Refresh the local clone from the live wiki and stop
   --sync-only              Sync and commit locally, but do not push
   --no-push                Refresh the local clone and commit, but do not push
@@ -95,6 +97,10 @@ parse_args() {
         PUSH_CHANGES=0
         shift
         ;;
+      --json)
+        OUTPUT_FORMAT="json"
+        shift
+        ;;
       --pull-only)
         MODE="pull-only"
         PUSH_CHANGES=0
@@ -118,6 +124,10 @@ parse_args() {
         ;;
     esac
   done
+
+  if [[ "$OUTPUT_FORMAT" == "json" && "$MODE" != "status" ]]; then
+    die "--json is only supported with --status"
+  fi
 }
 
 ensure_clone() {
@@ -159,6 +169,19 @@ print_status() {
     readme_state="present"
   else
     readme_state="missing"
+  fi
+
+  if [[ "$OUTPUT_FORMAT" == "json" ]]; then
+    printf '{\n'
+    printf '  "wikio_target": "%s",\n' "$TARGET_DIR"
+    printf '  "wiki_remote": "%s",\n' "$WIKI_URL"
+    printf '  "current_branch": "%s",\n' "${current_branch:-detached}"
+    printf '  "local_head": "%s",\n' "$current_head"
+    printf '  "origin_master": "%s",\n' "$remote_head"
+    printf '  "working_tree": "%s",\n' "$dirty_state"
+    printf '  "readme_local": "%s"\n' "$readme_state"
+    printf '}\n'
+    return 0
   fi
 
   printf 'wikio_target=%s\n' "$TARGET_DIR"
@@ -216,6 +239,8 @@ bash scripts/refresh-wikio-branch.sh
 Useful modes:
 
 ```bash
+bash scripts/refresh-wikio-branch.sh --status
+bash scripts/refresh-wikio-branch.sh --status --json
 bash scripts/refresh-wikio-branch.sh --pull-only
 bash scripts/refresh-wikio-branch.sh --sync-only
 ```
