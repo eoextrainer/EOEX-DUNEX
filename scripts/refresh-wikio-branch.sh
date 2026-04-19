@@ -27,6 +27,7 @@ Usage: bash scripts/refresh-wikio-branch.sh [options]
 Options:
   --wiki-url <url>         Override the derived GitHub Wiki remote URL
   --commit-message <text>  Commit message to use in the dedicated wiki clone
+  --status                 Show current dedicated clone status and stop
   --pull-only              Refresh the local clone from the live wiki and stop
   --sync-only              Sync and commit locally, but do not push
   --no-push                Refresh the local clone and commit, but do not push
@@ -89,6 +90,11 @@ parse_args() {
         COMMIT_MESSAGE="$2"
         shift 2
         ;;
+      --status)
+        MODE="status"
+        PUSH_CHANGES=0
+        shift
+        ;;
       --pull-only)
         MODE="pull-only"
         PUSH_CHANGES=0
@@ -134,6 +140,34 @@ prepare_branch() {
     git -C "$TARGET_DIR" checkout --orphan wikio >/dev/null
     git -C "$TARGET_DIR" rm -rf . >/dev/null 2>&1 || true
   fi
+}
+
+print_status() {
+  local current_branch current_head remote_head dirty_state readme_state
+
+  current_branch="$(git -C "$TARGET_DIR" branch --show-current 2>/dev/null || true)"
+  current_head="$(git -C "$TARGET_DIR" rev-parse --short HEAD 2>/dev/null || printf 'none')"
+  remote_head="$(git -C "$TARGET_DIR" rev-parse --short origin/master 2>/dev/null || printf 'none')"
+
+  if [[ -n "$(git -C "$TARGET_DIR" status --short 2>/dev/null || true)" ]]; then
+    dirty_state="dirty"
+  else
+    dirty_state="clean"
+  fi
+
+  if [[ -f "$LOCAL_README_FILE" ]]; then
+    readme_state="present"
+  else
+    readme_state="missing"
+  fi
+
+  printf 'wikio_target=%s\n' "$TARGET_DIR"
+  printf 'wiki_remote=%s\n' "$WIKI_URL"
+  printf 'current_branch=%s\n' "${current_branch:-detached}"
+  printf 'local_head=%s\n' "$current_head"
+  printf 'origin_master=%s\n' "$remote_head"
+  printf 'working_tree=%s\n' "$dirty_state"
+  printf 'readme_local=%s\n' "$readme_state"
 }
 
 sync_content() {
@@ -227,6 +261,11 @@ main() {
   ensure_clone
   ensure_git_identity
   prepare_branch
+
+  if [[ "$MODE" == "status" ]]; then
+    print_status
+    return 0
+  fi
 
   if [[ "$MODE" == "pull-only" ]]; then
     log "Pull-only mode completed"

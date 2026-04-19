@@ -51,6 +51,7 @@ bash scripts/refresh-wikio-branch.sh
 Useful options:
 
 ```bash
+bash scripts/refresh-wikio-branch.sh --status
 bash scripts/refresh-wikio-branch.sh --no-push
 bash scripts/refresh-wikio-branch.sh --pull-only
 bash scripts/refresh-wikio-branch.sh --sync-only
@@ -74,6 +75,7 @@ Behavior:
 
 Mode behavior:
 
+- `--status`: show the current dedicated clone path, branch, local and remote heads, worktree state, and local README presence without changing anything
 - `--pull-only`: refresh the dedicated local clone from the live wiki remote and stop before syncing local wiki content
 - `--sync-only`: refresh the dedicated local clone, sync and commit local wiki content, and stop before push
 
